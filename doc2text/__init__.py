@@ -2,12 +2,18 @@
 
 import os
 import mimetypes
+import sys
 
 import PyPDF2 as pyPdf
 import PythonMagick
 import cv2
 
 from .page import Page
+
+# Python 3 compartibility
+if sys.version_info >= (3, 0):
+    def xrange(*args, **kwargs):
+        return iter(range(*args, **kwargs))
 
 
 acceptable_mime = ["image/bmp", "image/png", "image/tiff", "image/jpeg",
